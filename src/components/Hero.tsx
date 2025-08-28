@@ -40,26 +40,26 @@ export function Hero() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-lg px-8 py-3">
+              <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-lg px-8 py-3 hover-zoom-sm">
                 Start Free Trial
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-3 border-muted-foreground/30 hover:border-muted-foreground/50">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-3 border-muted-foreground/30 hover:border-muted-foreground/50 hover-zoom-sm">
                 Watch Demo
               </Button>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8">
-              <div className="text-center">
+              <div className="text-center hover-zoom-sm cursor-pointer p-2 rounded-lg transition-all duration-300 hover:bg-muted/20">
                 <div className="text-2xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">10K+</div>
                 <div className="text-sm text-muted-foreground">Challenges</div>
               </div>
-              <div className="text-center">
+              <div className="text-center hover-zoom-sm cursor-pointer p-2 rounded-lg transition-all duration-300 hover:bg-muted/20">
                 <div className="text-2xl bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">500+</div>
                 <div className="text-sm text-muted-foreground">Companies</div>
               </div>
-              <div className="text-center">
+              <div className="text-center hover-zoom-sm cursor-pointer p-2 rounded-lg transition-all duration-300 hover:bg-muted/20">
                 <div className="text-2xl bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">99%</div>
                 <div className="text-sm text-muted-foreground">Accuracy</div>
               </div>

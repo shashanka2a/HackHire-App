@@ -84,7 +84,7 @@ export function Testimonials() {
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="relative group hover:shadow-lg transition-all duration-300">
+            <Card key={index} className="relative group hover:shadow-lg hover-lift hover-zoom-sm cursor-pointer">
               {/* Quote icon */}
               <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Quote className="w-8 h-8" />
@@ -132,7 +132,7 @@ export function Testimonials() {
             {companyLogos.map((company, index) => (
               <div 
                 key={index}
-                className="flex items-center justify-center h-12 px-4 py-2 bg-muted/30 rounded-lg border border-border/30 hover:border-border/50 transition-colors"
+                className="flex items-center justify-center h-12 px-4 py-2 bg-muted/30 rounded-lg border border-border/30 hover:border-border/50 hover-zoom-sm cursor-pointer"
               >
                 <span className="text-sm text-muted-foreground">{company}</span>
               </div>

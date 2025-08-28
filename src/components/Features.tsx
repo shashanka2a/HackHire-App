@@ -11,8 +11,13 @@ import {
   Target
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { useStaggeredAnimation, useScrollAnimation } from "../hooks/useScrollAnimation";
 
 export function Features() {
+  const { ref: featuresRef, visibleItems } = useStaggeredAnimation(8, 150);
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation(0.2);
+  const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation(0.2);
+  
   const features = [
     {
       icon: BookOpen,
@@ -76,7 +81,14 @@ export function Features() {
     <section id="features" className="py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div 
+          ref={headerRef}
+          className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${
+            headerVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}
+        >
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 text-sm mb-6">
             <Sparkles className="w-4 h-4 mr-2 text-blue-400" />
             Platform Features
@@ -96,13 +108,18 @@ export function Features() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div ref={featuresRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
+            const isVisible = visibleItems[index];
             return (
               <Card 
                 key={index} 
-                className="relative group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-border"
+                className={`relative group hover:shadow-lg hover-lift hover-zoom-sm border-border/50 hover:border-border cursor-pointer transition-all duration-700 ${
+                  isVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-8'
+                }`}
               >
                 {/* Background gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg`}></div>
@@ -125,7 +142,14 @@ export function Features() {
         </div>
 
         {/* Bottom Stats */}
-        <div className="mt-20 text-center">
+        <div 
+          ref={statsRef}
+          className={`mt-20 text-center transition-all duration-700 ${
+            statsVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}
+        >
           <div className="bg-gradient-to-r from-muted/50 to-muted/30 rounded-2xl p-8 border border-border/50">
             <h3 className="text-2xl mb-8">Trusted by Industry Leaders</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

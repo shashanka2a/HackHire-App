@@ -189,8 +189,8 @@ export function Pricing(props: PricingProps) {
                 key={index} 
                 className={`relative border-border/50 ${
                   plan.popular 
-                    ? 'ring-2 ring-blue-500/50 border-blue-500/50 scale-105' 
-                    : 'hover:shadow-lg transition-all duration-300'
+                    ? 'ring-2 ring-blue-500/50 border-blue-500/50 scale-105 hover-lift' 
+                    : 'hover:shadow-lg hover-lift hover-zoom-sm cursor-pointer'
                 }`}
               >
                 {plan.popular && (
